@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Spider Label</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Spider Label</h1>
+            </div>
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-btn" data-tab="upload" id="upload-tab">Enviar Música</button>
+                <button class="tab-btn" data-tab="news">Notícias</button>
+            </nav>
+            <div class="user-info">
+                <span>Olá, <span id="username"></span>!</span>
+                <a href="/logout" class="logout-btn">Sair</a>
+            </div>
+        </header>
+        <main>
+            <!-- Dashboard Tab Content -->
+            <section class="tab-content active" id="dashboard-tab">
+            <section class="stats">
+                <div class="stat-card">
+                    <h3>Artistas</h3>
+                    <p id="artists-count">7</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Álbuns</h3>
+                    <p id="albums-count">12</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Reproduções</h3>
+                    <p id="plays-count">3.4M</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Receita</h3>
+                    <p>$28.42 <span id="usd-to-brl">(≈ R$ 150.63)</span></p>
+                </div>
+            </section>
+
+            <section class="upload-section">
+                <h2>Enviar Nova Música</h2>
+                <p>Para enviar uma nova faixa, por favor preencha o formulário abaixo e anexe a capa do álbum.</p>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="upload-group">
+                        <label for="trackName">Nome da Faixa</label>
+                        <input type="text" id="trackName" name="trackName" required placeholder="Ex: Nova Faixa">
+                    </div>
+                    <div class="upload-group">
+                        <label for="artistName">Artista</label>
+                        <select id="artistName" name="artistName" required>
+                            <option value="">Selecione o artista</option>
+                            <option value="RTKnalha">RTKnalha</option>
+                            <option value="HiruTheKid">HiruTheKid</option>
+                            <option value="Mazziero">Mazziero</option>
+                            <option value="Ouhgee">Ouhgee</option>
+                            <option value="Damasio.8">Damasio.8</option>
+                            <option value="Sappy Blush">Sappy Blush</option>
+                            <option value="Mario Ce$ar">Mario Ce$ar</option>
+                        </select>
+                    </div>
+                    <div class="upload-group">
+                        <label for="albumCapa">Capa do Álbum (JPEG, JPG, PNG)</label>
+                        <input type="file" id="albumCapa" name="albumCapa" accept="image/jpeg,image/jpg,image/png" required>
+                        <small>Resolução mínima: 1500x1500 pixels</small>
+                    </div>
+                    <div class="upload-group">
+                        <label for="audioFile">Áudio da Faixa (MP3, WAV)</label>
+                        <input type="file" id="audioFile" name="audioFile" accept="audio/mpeg,audio/wav" required>
+                    </div>
+                    <button type="submit">Enviar Música</button>
+                </form>
+                <div id="uploadMessage"></div>
+            </section>
+
+            <section class="artist-info">
+                <h2>Nossos Artistas</h2>
+                <div class="artist-grid">
+                    <div class="artist-card">
+                        <h3>RTKnalha</h3>
+                        <div class="artist-links">
+                            <a href="https://open.spotify.com/artist/0lT8YELPZz9GPYW6lUejfi" target="_blank" class="spotify">Spotify</a>
+                            <a href="https://www.youtube.com/@RTKNALHA" target="_blank" class="youtube">YouTube</a>
+                            <a href="https://www.instagram.com/rtknalha/" target="_blank" class="instagram">Instagram</a>
+                            <a href="https://genius.com/artists/Rtknalha" target="_blank" class="genius">Genius</a>
+                        </div>
+                        <p>Artista associado à Spider Label. Confira suas faixas no Spotify e vídeos no YouTube.</p>
+                    </div>
+
+                    <div class="artist-card">
+                        <h3>HiruTheKid</h3>
+                        <div class="artist-links">
+                            <a href="https://open.spotify.com/search/HiruTheKid" target="_blank" class="spotify">Spotify</a>
+                            <a href="https://www.youtube.com/results?search_query=HiruTheKid" target="_blank" class="youtube">YouTube</a>
+                            <a href="https://www.instagram.com/hiruthekid/" target="_blank" class="instagram">Instagram</a>
+                            <a href="https://genius.com/search/HiruTheKid" target="_blank" class="genius">Genius</a>
+                        </p>
+                        <p>Artista emergente da cena underground. Links para suas plataformas oficiais.</p>
+                    </div>
+
+                    <div class="artist-card">
+                        <h3>Mazziero</h3>
+                        <div class="artist-links">
+                            <a href="https://open.spotify.com/search/Mazziero" target="_blank" class="spotify">Spotify</a>
+                            <a href="https://www.youtube.com/results?search_query=Mazziero" target="_blank" class="youtube">YouTube</a>
+                            <a href="https://www.instagram.com/mazziero/" target="_blank" class="instagram">Instagram</a>
+                            <a href="https://genius.com/search/Mazziero" target="_blank" class="genius">Genius</a>
+                        </p>
+                        <p>Produtor e rapper conhecido por batidas únicas e letras profundas.</p>
+                    </div>
+
+                    <div class="artist-card">
+                        <h3>Ouhgee</h3>
+                        <div class="artist-links">
+                            <a href="https://open.spotify.com/search/Ouhgee" target="_blank" class="spotify">Spotify</a>
+                            <a href="https://www.youtube.com/results?search_query=Ouhgee" target="_blank" class="youtube">YouTube</a>
+                            <a href="https://www.instagram.com/ouhgee/" target="_blank" class="instagram">Instagram</a>
+                            <a href="https://genius.com/search/Ouhgee" target="_blank" class="genius">Genius</a>
+                        </p>
+                        <p>Artista versátil com influência de trap e melodias atmosféricas.</p>
+                    </div>
+
+                    <div class="artist-card">
+                        <h3>Damasio.8</h3>
+                        <div class="artist-links">
+                            <a href="https://open.spotify.com/search/Damasio.8" target="_blank" class="spotify">Spotify</a>
+                            <a href="https://www.youtube.com/results?search_query=Damasio.8" target="_blank" class="youtube">YouTube</a>
+                            <a href="https://www.instagram.com/damasio.8/" target="_blank" class="instagram">Instagram</a>
+                            <a href="https://genius.com/search/Damasio.8" target="_blank" class="genius">Genius</a>
+                        </p>
+                        <p>Nome conhecido por experimentos sonoros e colaborações marcantes.</p>
+                    </div>
+
+                    <div class="artist-card">
+                        <h3>Sappy Blush</h3>
+                        <div class="artist-links">
+                            <a href="https://open.spotify.com/search/Sappy%20Blush" target="_blank" class="spotify">Spotify</a>
+                            <a href="https://www.youtube.com/results?search_query=Sappy+Blush" target="_blank" class="youtube">YouTube</a>
+                            <a href="https://www.instagram.com/sappyblush/" target="_blank" class="instagram">Instagram</a>
+                            <a href="https://genius.com/search/Sappy%20Blush" target="_blank" class="genius">Genius</a>
+                        </p>
+                        <p>Projeto melancólico que mistura lo-fi com elementos de hip-hop.</p>
+                    </div>
+
+                    <div class="artist-card">
+                        <h3>Mario Ce$ar</h3>
+                        <div class="artist-links">
+                            <a href="https://open.spotify.com/search/Mario%20Ce%24ar" target="_blank" class="spotify">Spotify</a>
+                            <a href="https://www.youtube.com/results?search_query=Mario+Ce%24ar" target="_blank" class="youtube">YouTube</a>
+                            <a href="https://www.instagram.com/mariocesar/" target="_blank" class="instagram">Instagram</a>
+                            <a href="https://genius.com/search/Mario%20Ce%24ar" target="_blank" class="genius">Genius</a>
+                        </p>
+                        <p>Artista conhecido por flows técnicos e produção de alta qualidade.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-activity">
+                <h2>Atividade Recent</h2>
+                <ul id="activity-list">
+                    <li>Nova faixa enviada: "Eclipse" por RTKnalha</li>
+                    <li>Capa aprovada para single "Midnight Vibes"</li>
+                    <li>Artista HiruTheKid atingiu 10k seguidores no Instagram</li>
+                    <li>Playlist da label atualizada com novos lançamentos</li>
+                </ul>
+            </section>
+            </section>
+
+            <!-- Upload Tab Content (Admin Only) -->
+            <section class="tab-content" id="upload-tab">
+                <section class="upload-section">
+                    <h2>Enviar Nova Música</h2>
+                    <p>Para enviar uma nova faixa, por favor preencha o formulário abaixo e anexe a capa do álbum.</p>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="upload-group">
+                            <label for="trackName">Nome da Faixa</label>
+                            <input type="text" id="trackName" name="trackName" required placeholder="Ex: Nova Faixa">
+                        </div>
+                        <div class="upload-group">
+                            <label for="artistName">Artista</label>
+                            <select id="artistName" name="artistName" required>
+                                <option value="">Selecione o artista</option>
+                                <option value="RTKnalha">RTKnalha</option>
+                                <option value="HiruTheKid">HiruTheKid</option>
+                                <option value="Mazziero">Mazziero</option>
+                                <option value="Ouhgee">Ouhgee</option>
+                                <option value="Damasio.8">Damasio.8</option>
+                                <option value="Sappy Blush">Sappy Blush</option>
+                                <option value="Mario Ce$ar">Mario Ce$ar</option>
+                            </select>
+                        </div>
+                        <div class="upload-group">
+                            <label for="albumCapa">Capa do Álbum (JPEG, JPG, PNG)</label>
+                            <input type="file" id="albumCapa" name="albumCapa" accept="image/jpeg,image/jpg,image/png" required>
+                            <small>Resolução mínima: 1500x1500 pixels</small>
+                        </div>
+                        <div class="upload-group">
+                            <label for="audioFile">Áudio da Faixa (MP3, WAV)</label>
+                            <input type="file" id="audioFile" name="audioFile" accept="audio/mpeg,audio/wav" required>
+                        </div>
+                        <button type="submit">Enviar Música</button>
+                    </form>
+                    <div id="uploadMessage"></div>
+                </section>
+            </section>
+
+            <!-- News Tab Content -->
+            <section class="tab-content" id="news-tab">
+                <section class="news-section">
+                    <h2>Notícias e Lançamentos Recentes</h2>
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f734819275e4e1eb1a7a5a5a" alt="RTKnalha - Nova Era">
+                                <div class="news-overlay">
+                                    <span class="play-button">▶</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>RTKnalha lança "Nova Era"</h3>
+                                <p class="news-date">2 horas atrás • Spotify</p>
+                                <p>O primeiro single do próximo álbum chega com batidas experimentais e letra introspectiva.</p>
+                                <a href="https://open.spotify.com/track/0lT8YELPZz9GPYW6lUejfi" class="news-link" target="_blank">Ouça no Spotify</a>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://i.ytimg.com/vi/HiruTheKid/hqdefault.jpg" alt="HiruTheKid - Underground Vibes">
+                                <div class="news-overlay">
+                                    <span class="play-button">▶</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>HiruTheKid estreia "Underground Vibes"</h3>
+                                <p class="news-date">5 horas atrás • YouTube</p>
+                                <p>Faixa produzida em colaboração com produtores da cena underground de São Paulo.</p>
+                                <a href="https://www.youtube.com/watch?v=HiruTheKid" class="news-link" target="_blank">Assista no YouTube</a>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://i.scdn.co/image/ab67616d0000b2739a6b8f3e7a8b9c0d1e2f3a4b5c" alt="Mazziero - Beats do Futuro">
+                                <div class="news-overlay">
+                                    <span class="play-button">▶</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>Mazziero lança EP "Beats do Futuro"</h3>
+                                <p class="news-date">1 dia atrás • Spotify</p>
+                                <p>Cinco faixas que exploros sons futuristas com influências de trap e música eletrônica.</p>
+                                <a href="https://open.spotify.com/album/1a2b3c4d5e6f7g8h9i0j" class="news-link" target="_blank">Ouça no Spotify</a>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://i.ytimg.com/vi/Ouhgee/hqdefault.jpg" alt="Ouhgee - Noite Clara">
+                                <div class="news-overlay">
+                                    <span class="play-button">▶</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>Ouhgee compartilha "Noite Clara"</h3>
+                                <p class="news-date">3 dias atrás • YouTube</p>
+                                <p>Balada melódica que mostra uma nova faceta artística do rapper.</p>
+                                <a href="https://www.youtube.com/watch?v=Ouhgee" class="news-link" target="_blank">Assista no YouTube</a>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273k9l8m7n6o5p4q3r2s1t0u9v8" alt="Damasio.8 - Experimentos Sonoros">
+                                <div class="news-overlay">
+                                    <span class="play-button">▶</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>Damasio.8 apresenta nova série de experimentos</h3>
+                                <p class="news-date">2 dias atrás • Spotify</p>
+                                <p>Três faixas instrumentais que exploram texturas sonoras inéditas na música brasileira.</p>
+                                <a href="https://open.spotify.com/album/9z8y7x6w5v4u3t2s1r0q" class="news-link" target="_blank">Ouça no Spotify</a>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273a1b2c3d4e5f6g7h8i9j0k1l2" alt="Sappy Blush - Lo-fi Memories">
+                                <div class="news-overlay">
+                                    <span class="play-button">▶</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>Sappy Blush lança "Lo-fi Memories"</h3>
+                                <p class="news-date">6 horas atrás • Spotify</p>
+                                <p>Coleção de beats lo-fi perfeita para estudar ou relaxar após um longo dia.</p>
+                                <a href="https://open.spotify.com/track/a1b2c3d4e5f6g7h8i9j0" class="news-link" target="_blank">Ouça no Spotify</a>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://i.ytimg.com/vi/MarioCe$ar/hqdefault.jpg" alt="Mario Ce$ar - Flow Técnico">
+                                <div class="news-overlay">
+                                    <span class="play-button">▶</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <h3>Mario Ce$ar demonstra maestria em "Flow Técnico"</h3>
+                                <p class="news-date">1 hora atrás • YouTube</p>
+                                <p>Freestyle impressionante mostrando por que é considerado um dos melhores técnicos do país.</p>
+                                <a href="https://www.youtube.com/watch?v=MarioCe$ar" class="news-link" target="_blank">Assista no YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
